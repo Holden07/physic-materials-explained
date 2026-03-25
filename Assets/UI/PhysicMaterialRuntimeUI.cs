@@ -17,12 +17,12 @@ namespace LlamAcademy.UI
         private EnumField FrictionCombineField => this.Q<EnumField>("friction-combine");
         private EnumField BouncinessCombineField => this.Q<EnumField>("bounciness-combine");
 
-        public PhysicMaterialRuntimeUI(PhysicsMaterial material, string label = "")
+        public PhysicMaterialRuntimeUI(PhysicMaterial material, string label = "")
         {
             Init(material, label);
         }
 
-        public void Init(PhysicsMaterial material, string label = "")
+        public void Init(PhysicMaterial material, string label = "")
         {
             if (VisualTree == null)
             {
@@ -39,8 +39,8 @@ namespace LlamAcademy.UI
             StaticFrictionSlider.RegisterCallback<ChangeEvent<float>>(evt => material.staticFriction = evt.newValue);
             DynamicFrictionSlider.RegisterCallback<ChangeEvent<float>>(evt => material.dynamicFriction = evt.newValue);
             BouncinessSlider.RegisterCallback<ChangeEvent<float>>(evt => material.bounciness = evt.newValue);
-            FrictionCombineField.RegisterCallback<ChangeEvent<Enum>>(evt => material.frictionCombine = (PhysicsMaterialCombine) evt.newValue);
-            BouncinessCombineField.RegisterCallback<ChangeEvent<Enum>>(evt => material.bounceCombine = (PhysicsMaterialCombine) evt.newValue);
+            FrictionCombineField.RegisterCallback<ChangeEvent<Enum>>(evt => material.frictionCombine = (PhysicMaterialCombine) evt.newValue);
+            BouncinessCombineField.RegisterCallback<ChangeEvent<Enum>>(evt => material.bounceCombine = (PhysicMaterialCombine) evt.newValue);
             Title.text = label;
         }
     }
