@@ -14,9 +14,9 @@ namespace LlamAcademy.UI
         private Rigidbody[] Balls;
 
         [Header("Material References")] [SerializeField]
-        private PhysicMaterial[] WorldPhysicMaterials;
+        private PhysicsMaterial[] WorldPhysicMaterials;
 
-        [SerializeField] private PhysicMaterial[] DynamicPhysicMaterials;
+        [SerializeField] private PhysicsMaterial[] DynamicPhysicMaterials;
 
         private VisualElement WorldMaterialParent;
         private VisualElement DynamicMaterialParent;
@@ -54,7 +54,7 @@ namespace LlamAcademy.UI
             for (int i = 0; i < Balls.Length; i++)
             {
                 Rigidbody ball = Balls[i];
-                ball.velocity = Vector3.zero;
+                ball.linearVelocity = Vector3.zero;
                 ball.angularVelocity = Vector3.zero;
                 ball.useGravity = false;
                 ball.transform.position = StartPositions[i];
@@ -63,13 +63,13 @@ namespace LlamAcademy.UI
 
         private void Start()
         {
-            foreach (PhysicMaterial material in WorldPhysicMaterials)
+            foreach (PhysicsMaterial material in WorldPhysicMaterials)
             {
                 PhysicMaterialRuntimeUI ui = new(material, material.name);
                 WorldMaterialParent.Add(ui);
             }
 
-            foreach (PhysicMaterial material in DynamicPhysicMaterials)
+            foreach (PhysicsMaterial material in DynamicPhysicMaterials)
             {
                 PhysicMaterialRuntimeUI ui = new(material, material.name);
                 DynamicMaterialParent.Add(ui);
